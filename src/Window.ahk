@@ -207,6 +207,48 @@ Window_isPopup(wndId) {
   Return, wndStyle & WS_POPUP
 }
 
+Window_hasMaximizeBox(wndId) {
+  WS_MAXIMIZEBOX = 0x00010000
+  WinGet, wndStyle, Style, ahk_id %wndId%
+
+  Return, wndStyle & WS_MAXIMIZEBOX
+}
+
+Window_hasMinimizeBox(wndId) {
+  WS_MINIMIZEBOX = 0x00020000
+  WinGet, wndStyle, Style, ahk_id %wndId%
+
+  Return, wndStyle & WS_MINIMIZEBOX
+}
+
+Window_hasThickFrame(wndId) {
+  WS_THICKFRAME = 0x00040000
+  WinGet, wndStyle, Style, ahk_id %wndId%
+
+  Return, wndStyle & WS_THICKFRAME
+}
+
+Window_hasSysMenu(wndId) {
+  WS_SYSMENU = 0x00080000
+  WinGet, wndStyle, Style, ahk_id %wndId%
+
+  Return, wndStyle & WS_SYSMENU 
+}
+
+Window_hasCaption(wndId) {
+  WS_CAPTION = 0x00C00000
+  WinGet, wndStyle, Style, ahk_id %wndId%
+
+  Return, wndStyle & WS_CAPTION 
+}
+
+Window_isOverlapped(wndId) {
+  WS_OVERLAPPED = 0x00000000
+  WinGet, wndStyle, Style, ahk_id %wndId%
+
+  Return, wndStyle & WS_OVERLAPPED 
+}
+
 Window_isProg(wndId) {
   WinGetClass, wndClass, ahk_id %wndId%
   WinGetTitle, wndTitle, ahk_id %wndId%
